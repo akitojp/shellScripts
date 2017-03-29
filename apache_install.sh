@@ -6,8 +6,8 @@ DOCUMENT_ROOT="/var/www/html"
 UPLOAD_MAX_SIZE="4M"
 
 # Initial
-sudo yum update
 sudo yum install epel-release
+sudo yum update
 
 # install apache2
 sudo yum install -y httpd
