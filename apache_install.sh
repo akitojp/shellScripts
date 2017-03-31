@@ -1,5 +1,5 @@
 #!/bin/sh
-#val
+# variable
 WORKDIR=$(cd $(dirname $0) && pwd)
 THIS_FILE_NAME=${0##*/}
 DOCUMENT_ROOT="/var/www/html"
@@ -13,9 +13,9 @@ sudo apachectl start
 # Distribute that conversion tool
 cp -a $(ls $WORKDIR | grep -v $THIS_FILE_NAME) $DOCUMENT_ROOT
 
-#####################################
+###########################
 # Apache security settings
-#####################################
+###########################
 cat << _EOF_ > /etc/httpd/conf.d/security.conf
 # Conceal version information
 ServerTokens Prod
@@ -39,16 +39,18 @@ TraceEnable Off
 
 _EOF_
 
+# Hide directory structure
 cp -a /etc/httpd/conf.d/autoindex.conf /etc/httpd/conf.d/autoindex.conf.default
 cat /dev/null > /etc/httpd/conf.d/autoindex.conf
+# Disable Test Page
 cp -a /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.default
 cat /dev/null > /etc/httpd/conf.d/welcome.conf
 
 sudo apachectl restart
 
-#####################################
+#######################
 # firewalld settings
-#####################################
+#######################
 sudo yum install -y firewalld
 sudo systemctl start firewalld
 sudo systemctl enable firewalld
@@ -57,8 +59,8 @@ sudo firewall-cmd --add-service=http --zone=public --permanent
 sudo firewall-cmd --add-service=https --zone=public --permanent
 sudo firewall-cmd --reload
 
-#####################################
+#######################
 # disable SELinux
-#####################################
+#######################
 setenforce 0
 sed -i -e "/SELINUX=enforcing/c\SELINUX=disable" /etc/selinux/config
