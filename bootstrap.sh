@@ -28,4 +28,4 @@ sudo timedatectl set-timezone Asia/Tokyo
 
 # disable SELinux
 setenforce 0
-sed -i -e "/SELINUX=enforcing/c\SELINUX=disable" /etc/selinux/config
+sed -i -e "/^SELINUX=enforcing/c\SELINUX=disable" /etc/selinux/config
