@@ -29,3 +29,7 @@ sudo timedatectl set-timezone Asia/Tokyo
 # disable SELinux
 setenforce 0
 sed -i -e "/^SELINUX=enforcing/c\SELINUX=disable" /etc/selinux/config
+
+# allow PasswordAuthentication
+sudo sed -i -e "/^PasswordAuthentication/c\PasswordAuthentication yes" /etc/ssh/sshd_config
+sudo systemctl restart sshd
