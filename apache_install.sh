@@ -7,6 +7,19 @@ DOCUMENT_ROOT="/var/www/html"
 # install apache2
 sudo yum update -y
 sudo yum install -y httpd
+cat << _EOF_ > /var/www/html/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+_EOF_
 sudo apachectl enable
 sudo apachectl start
 
