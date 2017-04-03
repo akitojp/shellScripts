@@ -2,13 +2,14 @@
 
 # Install Package
 sudo yum -y install epel-release
-sudo yum -y install dnf
 sudo yum -y update
+sudo yum -y install dnf
 sudo yum -y install vim
 sudo yum -y install mlocate
 sudo yum -y install unzip
 sudo yum -y install git
 sudo yum -y install tmux
+sudo yum -y install wget
 sudo yum -y groupinstall base "Development tools"　
 
 # Auto yum update
