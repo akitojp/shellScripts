@@ -7,7 +7,7 @@ DOCUMENT_ROOT="/var/www/html"
 # install apache2
 sudo yum update -y
 sudo yum install -y httpd
-cat << _EOF_ > /var/www/html/index.html
+cat << _EOF_ > $DOCUMENT_ROOT/index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
