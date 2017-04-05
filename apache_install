@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # variable
 WORKDIR=$(cd $(dirname $0) && pwd)
 THIS_FILE_NAME=${0##*/}
